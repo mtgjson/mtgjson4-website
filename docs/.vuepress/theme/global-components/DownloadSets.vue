@@ -6,10 +6,11 @@
       .sorting-options
         p.show-options(
           @click="showOptions = !showOptions"
-          :class="{'hide-options': !showOptions}") Toggle Options
+          @keydown.enter="showOptions = !showOptions"
+          :class="{'hide-options': !showOptions}" tabindex="0") Toggle Options
         fieldset.sort-rows(v-if="showOptions")
           .sort-row.search
-            label(for="search-input") Search By:
+            label(for="search-input" tabindex="0") Search By:
             input.table-sort-select(
               name="search-input"
               placeholder="name, code, etc..."
@@ -18,7 +19,7 @@
               @input="onHandleChange")
 
           .sort-row
-            label(for="filter-input") Filter By:
+            label(for="filter-input" tabindex="0") Filter By:
             select.table-sort-select(
               id="filter-input"
               v-model="filterKey"
@@ -27,7 +28,7 @@
               option(v-for="(type, key) in filters" :key="key" :value="type") {{ $helpers.prettifyType(type) }}
 
           .sort-row
-            label(for="sort-input") Sort By:
+            label(for="sort-input" tabindex="0") Sort By:
             select.table-sort-select(
               id="sort-input"
               v-model="sortKey"
@@ -42,7 +43,7 @@
               option(value="type:true") Type (Descending)
 
           .sort-row.checkbox
-            label(for="spoiler-input") Include Spoilers:
+            label(for="spoiler-input" tabindex="0") Include Spoilers:
             input(
               id="spoiler-input"
               type="checkbox"
@@ -59,28 +60,28 @@
             div(v-else :class="`ss ss-${set.code.toLowerCase()}`")
           .text-wrap
             .text-wrap--details
-              h3(:id="set.name.replace(/ /g, '_')") {{ set.name }}
+              h3(:id="set.name.replace(/ /g, '_')" tabindex="0") {{ set.name }}
               ol
                 li(v-if="set.isPartialPreview")
-                  div.spoiler spoiler
+                  div.spoiler(tabindex="0") spoiler
                 li(v-if="set.isOnlineOnly")
-                  div.spoiler online only
+                  div.spoiler(tabindex="0") online only
                 li(v-if="set.isPaperOnly")
-                  div.spoiler paper only
+                  div.spoiler(tabindex="0") paper only
                 li(v-if="set.isPaper")
-                  div.spoiler paper
+                  div.spoiler(tabindex="0") paper
                 li(v-if="set.isOnline")
-                  div.spoiler online
+                  div.spoiler(tabindex="0") online
               ol
                 li
-                  small Set Code:
-                  small &nbsp;{{ set.code }}
+                  small(tabindex="0") Set Code:
+                  small(tabindex="0") &nbsp;{{ set.code }}
                 li
-                  small Type:
-                  small &nbsp;{{ set.type.replace(/_/g, ' ') }}
+                  small(tabindex="0") Type:
+                  small(tabindex="0") &nbsp;{{ set.type.replace(/_/g, ' ') }}
                 li
-                  small Release Date:
-                  small &nbsp;{{ set.releaseDate }}
+                  small(tabindex="0") Release Date:
+                  small(tabindex="0") &nbsp;{{ set.releaseDate }}
             .text-wrap--downloads
               DownloadField(:fileName="set.code")
 </template>

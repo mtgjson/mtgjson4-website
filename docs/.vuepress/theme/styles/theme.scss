@@ -15,6 +15,11 @@ html, body, #app, .theme-container {
   height: 100%;
 }
 
+.keyboard-focus *:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
 @media (max-width: 719px) {
   html, body, #app, .theme-container {
     height: auto;
@@ -115,6 +120,7 @@ blockquote {
 
   h3 {
     padding-top: 0;
+    margin-top: 0;
   }
 
   p {
@@ -158,6 +164,24 @@ blockquote {
         margin-right: 5px;
       }
     }
+  }
+}
+
+.skip-navigation {
+  font-size: 0;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 999;
+  background-color: white;
+  color: var(--dark-color);
+  border-radius: 5px;
+  text-decoration: none;
+
+  &:focus {
+    padding: 10px;
+    border: 2px solid var(--dark-color);
+    font-size: initial;
   }
 }
 

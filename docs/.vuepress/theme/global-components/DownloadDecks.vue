@@ -6,10 +6,11 @@
       .sorting-options
         p.show-options(
           @click="showOptions = !showOptions"
-          :class="{'hide-options': !showOptions}") Toggle Options
+          @keydown.enter="showOptions = !showOptions"
+          :class="{'hide-options': !showOptions}" tabindex="0") Toggle Options
         fieldset.sort-rows(v-if="showOptions")
           .sort-row.search
-            label(for="search-input") Search By:
+            label(for="search-input" tabindex="0") Search By:
             input.table-sort-select(
               id="search-input"
               placeholder="name, code, etc..."
@@ -18,7 +19,7 @@
               @input="onHandleChange")
 
           .sort-row
-            label(for="sort-input") Sort By:
+            label(for="sort-input" tabindex="0") Sort By:
             select.table-sort-select(
               id="sort-input"
               v-model="sortKey"
@@ -39,17 +40,17 @@
             div(:class="`ss ss-${deck.code.toLowerCase()}`")
           .text-wrap
             .text-wrap--details
-              h3(:id="deck.name.replace(/ /g, '_')") {{ deck.name }}
+              h3(:id="deck.name.replace(/ /g, '_')" tabindex="0") {{ deck.name }}
               ol
                 li
-                  small Deck Code:
-                  small &nbsp;{{ deck.code }}
+                  small(tabindex="0") Deck Code:
+                  small(tabindex="0") &nbsp;{{ deck.code }}
                 li
-                  small Type:
-                  small &nbsp;{{ deck.type}}
+                  small(tabindex="0") Type:
+                  small(tabindex="0") &nbsp;{{ deck.type}}
                 li
-                  small Release Date:
-                  small &nbsp;{{ deck.releaseDate }}
+                  small(tabindex="0") Release Date:
+                  small(tabindex="0") &nbsp;{{ deck.releaseDate }}
             .text-wrap--downloads
               DownloadField(:fileName="`decks/${deck.fileName}`")
 </template>

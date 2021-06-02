@@ -1,15 +1,16 @@
 <template lang="pug">
   header.navbar
+    a.skip-navigation(href="#page") Skip Navigation
     .navbar-options
       SidebarButton.desktop-hide(@toggle-sidebar="$emit('toggle-sidebar')")
-      router-link.nav-logo-link(:to="$localePath")
+      router-link.nav-logo-link(:to="$localePath" tabindex="-1")
         NavMeta(:width="`60px`")
       //- NavLinks.mobile-hide
       ThemeSwitcher
 </template>
 
 <script>
-import NavLinks from './NavLinks';
+// import NavLinks from './NavLinks';
 import SidebarButton from './SidebarButton';
 import NavMeta from '../global-components/NavMeta';
 import ThemeSwitcher from '../global-components/ThemeSwitcher';
@@ -18,7 +19,7 @@ export default {
   components: {
     SidebarButton,
     ThemeSwitcher,
-    NavLinks,
+    // NavLinks,
     NavMeta,
   },
 };

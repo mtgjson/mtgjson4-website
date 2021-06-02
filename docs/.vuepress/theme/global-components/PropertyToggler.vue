@@ -1,8 +1,8 @@
 <template lang="pug">
 #property-toggler(v-if="noOptionals")
-  label(for="property-toggler-input") Include optional properties
+  label(for="property-toggler-input" tabindex="0") Include optional properties
     span {{" "}}(Showing {{ count }}):
-  input(id="property-toggler-input", type="checkbox", @click="toggleOptionals", v-model="checked")
+  input(id="property-toggler-input" type="checkbox" @click="toggleOptionals" v-model="checked")
 </div>
 </template>
 

@@ -2,37 +2,37 @@
   .download-links
     div(v-if="fileName === 'AllPrintings'")
       div.download-links--wrap
-        p.small-header Downloads:
+        p.small-header(tabindex="0" :aria-label="`Downloads for ${fileName}`") Downloads:
         a.download-links--link(v-for="(format, key) in jsonFormats" v-if="format !== 'json'" :key="`json-${key + format}`" download :href="`${$api}${fileName}.json.${format}`")
-          button.cta-btn {{ format }}
+          button.cta-btn(tabindex="-1") {{ format }}
         a.download-links--link(v-else download :href="`${$api}${fileName}.json`")
-          button.cta-btn {{ format }}
+          button.cta-btn(tabindex="-1") {{ format }}
       div.download-links--wrap
-        p.small-header SQL Downloads:
+        p.small-header(tabindex="0" :aria-label="`SQL Downloads for ${fileName}`") SQL Downloads:
         a.download-links--link(v-for="(format, key) in sqlFormats" v-if="format !== 'sql'" :key="`sql-${key + format}`" download :href="`${$api}${fileName}.sql.${format}`")
-          button.cta-btn {{ format }}
+          button.cta-btn(tabindex="-1") {{ format }}
         a.download-links--link(v-else download :href="`${$api}${fileName}.sql`")
-          button.cta-btn {{ format }}
+          button.cta-btn(tabindex="-1") {{ format }}
       div.download-links--wrap
-        p.small-header SQLite Downloads:
+        p.small-header(tabindex="0" :aria-label="`SQLite Downloads for ${fileName}`") SQLite Downloads:
         a.download-links--link(v-for="(format, key) in sqliteFormats" v-if="format !== 'sqlite'" :key="`sqlite-${key + format}`" download :href="`${$api}${fileName}.sqlite.${format}`")
-          button.cta-btn {{ format }}
+          button.cta-btn(tabindex="-1") {{ format }}
         a.download-links--link(v-else download :href="`${$api}${fileName}.sqlite`")
-          button.cta-btn {{ format }}
+          button.cta-btn(tabindex="-1") {{ format }}
     div(v-else-if="fileName.includes('Files')")
       div.download-links--wrap
-        p.small-header File Downloads:
+        p.small-header(tabindex="0" :aria-label="`File Downloads for ${fileName}`") File Downloads:
         a.download-links--link(v-for="(format, key) in fileFormats" v-if="format !== 'zip'" :key="key" download :href="`${$api}${fileName}.tar.${format}`")
-          button.cta-btn {{ format }}
+          button.cta-btn(tabindex="-1") {{ format }}
         a.download-links--link(v-else download :href="`${$api}${fileName}.zip`")
-          button.cta-btn {{ format }}
+          button.cta-btn(tabindex="-1") {{ format }}
     div(v-else)
       div.download-links--wrap
-        p.small-header Downloads:
+        p.small-header(tabindex="0" :aria-label="`Downloads for ${fileName}`") Downloads:
         a.download-links--link(v-for="(format, key) in jsonFormats" v-if="format !== 'json'" :key="key" download :href="`${$api}${fileName}.json.${format}`")
-          button.cta-btn {{ format }}
+          button.cta-btn(tabindex="-1") {{ format }}
         a.download-links--link(v-else download :href="`${$api}${fileName}.json`")
-          button.cta-btn {{ format }}
+          button.cta-btn(tabindex="-1") {{ format }}
 
 </template>
 
@@ -52,10 +52,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.small-header {
-  margin-bottom: 0 !important;
-}
-
 .download-links {
   &--wrap {
     display: flex;
@@ -64,6 +60,8 @@ export default {
 
     .small-header {
       flex: 100%;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
     }
   }
   &--link {

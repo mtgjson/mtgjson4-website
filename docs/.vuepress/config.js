@@ -176,6 +176,10 @@ module.exports = {
         path: '/'
       },
       {
+        title: 'Getting Started',
+        path: '/getting-started/'
+      },
+      {
         title: 'F.A.Q.',
         path: '/faq/'
       },

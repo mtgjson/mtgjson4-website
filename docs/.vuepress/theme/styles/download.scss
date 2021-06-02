@@ -18,13 +18,13 @@
     background-color: var(--bg-dark-color);
     top: 0;
     z-index: 9;
-    padding: 1rem 0 1.5rem;
+    padding: 1rem 0 0;
     // grid-column: span 4;
 
     .show-options {
       display: inline-block;
-      padding: 0 0 1.5rem 1.25rem;
-      margin-bottom: 0;
+      padding: 0 0 0 1.25rem;
+      margin-bottom: 1.5rem;
       position: relative;
       color: var(--accent-color);
       text-decoration: underline;
@@ -57,6 +57,7 @@
     }
 
     .sort-rows {
+      padding-bottom: 1.5rem;
       .sort-row {
         display: block;
         min-height: 2rem;

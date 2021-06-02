@@ -1,17 +1,16 @@
 <template lang="pug">
   .supporters
     .supporters-wrap(v-if="contributors.length > 0")
-      h3 Our Contributors
+      h3(tabindex="0") Our Contributors
       ul.contributors-list
-        li(v-for="(contributor, key) in contributors" :key="key")
-          div
-            a(:href="contributor.url" rel="noopener noreferrer" target="_blank")
-              img(class="lazy" :data-src="contributor.avatar" :alt="`Avatar for ${contributor.username}`" :title="`Avatar for ${contributor.username}`")
-    h2 Supporters
+        li.contributor(v-for="(contributor, key) in contributors" :key="key")
+          a(:href="contributor.url" rel="noopener noreferrer" target="_blank")
+            img(class="lazy" :data-src="contributor.avatar" :alt="`Avatar for ${contributor.username}`" :title="`Avatar for ${contributor.username}`")
+    h2(tabindex="0") Supporters
     .supporters-wrap(v-if="patrons")
-      h3 Our Patreon Supporters
-      p Without our Patreon supporters we would not be able to keep this site running. They keep the lights on here and we would like to highlight their efforts in supporting this project. MTGJSON does not endorse these supporters and their projects.
-      small(v-html="projectMsg")
+      h3(tabindex="0") Our Patreon Supporters
+      p(tabindex="0") Without our Patreon supporters we would not be able to keep this site running. They keep the lights on here and we would like to highlight their efforts in supporting this project. MTGJSON does not endorse these supporters and their projects.
+      small(tabindex="0" v-html="projectMsg")
       .supporters-grid
         blockquote.supporter(v-for="({ link, image, name, since, tier, blurb } = patron, key) in patrons" :data-tier="tier")
           .supporter-link
@@ -23,15 +22,15 @@
                 p {{name.substring(0, 1)}}
             a.linked-name(v-if="link" :href="link" rel="noopener noreferrer" target="_blank")
               h4(v-html="name")
-            h4(v-else v-html="name")
+            h4(v-else v-html="name" tabindex="0")
             p.tier {{ tier }} Supporter
             p.tier-time(v-if="since" v-html="formatTime(since)")
 
     //- Not Patrons but services that use MTGJSON
     .supporters-wrap(v-if="services")
-      h3 Others Powered by MTGJSON
-      p MTGJSON has allowed many different projects to serve data to their audiences and we're very proud of what our friends have accomplished. We'd like to highlight them here. MTGJSON does not endorse these supporters and their projects.
-      small(v-html="projectMsg")
+      h3(tabindex="0") Others Powered by MTGJSON
+      p(tabindex="0") MTGJSON has allowed many different projects to serve data to their audiences and we're very proud of what our friends have accomplished. We'd like to highlight them here. MTGJSON does not endorse these supporters and their projects.
+      small(tabindex="0" v-html="projectMsg")
       .supporters-grid.services(:data-tier="0")
         blockquote.supporter.service(v-for="({link, image, name} = supporter, key) in services" :key="key")
           .supporter-link
@@ -43,7 +42,7 @@
                 p {{name.substring(0, 1)}}
             a.linked-name(v-if="link" :href="link" rel="noopener noreferrer" target="_blank")
               h4(v-html="name")
-            h4(v-else v-html="name")
+            h4(v-else v-html="name" tabindex="0")
 
 </template>
 
@@ -132,11 +131,16 @@ export default {
     display: flex;
     flex-wrap: wrap;
     grid-gap: 20px;
-    margin-left: 0;
+    margin: 0;
+    padding-bottom: 25px;
 
-    li {
+    .contributor {
       flex: none;
       list-style: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: white;
 
       a {
         display: block;
@@ -146,7 +150,8 @@ export default {
 
         img {
           float: left;
-          max-width: 50px;
+          width: 100%;
+          height: 100%;
         }
 
         &::before,

@@ -1,6 +1,6 @@
 <template lang="pug">
   .nav-meta
-    .nav-meta--logo(title="MTGJSON Logo")
+    .nav-meta--logo(tabindex="0" title="MTGJSON Logo")
       svg(
         alt="MTGJSON Logo"
         xmlns="http://www.w3.org/2000/svg"

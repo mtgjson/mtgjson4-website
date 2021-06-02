@@ -1,5 +1,5 @@
 <template lang="pug">
-  main.page
+  main#page.page
     slot(name="top")
 
     Content

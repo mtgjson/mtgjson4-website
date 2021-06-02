@@ -18,7 +18,9 @@
 
 # Frequently Asked Questions
 
-Here is a list of frequently asked questions from our users since some data can be nuanced.
+Here is a list of frequently asked questions from our users since some data can be nuanced. For a quick, accessible guide, check out the [Getting Started](/faq/getting-started/).
+
+## Common Questions
 
 [[toc]]
 

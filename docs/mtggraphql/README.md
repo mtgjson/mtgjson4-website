@@ -97,7 +97,7 @@ query{
 }
 ```
 
-## HTTP Request
+## HTTP Requests
 
 You can use an HTTP request on the mtgjson.com GraphQL endpoint with the following format:
 

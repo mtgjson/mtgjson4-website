@@ -22,6 +22,8 @@ import Page from '../components/Page';
 import Sidebar from '../components/Sidebar';
 import { resolveSidebarItems } from '../util';
 
+import detectFocus from '../../src/scripts/detectFocus';
+
 export default {
   components: { Page, Sidebar, Navbar },
 
@@ -79,6 +81,8 @@ export default {
   },
 
   mounted() {
+    detectFocus();
+
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });
